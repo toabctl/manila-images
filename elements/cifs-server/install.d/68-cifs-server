@@ -1,0 +1,4 @@
+#!/bin/bash
+set -eu
+
+install-packages -m cifs-server cifs_server_package
