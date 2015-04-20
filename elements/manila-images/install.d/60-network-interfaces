@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+# create configuration for a second network interface
+
+if [ 'ubuntu' = "$DISTRO_NAME" ]; then
+    cat > /etc/network/interfaces.d/eth1.cfg <<EOF
+auto eth1
+iface eth1 inet dhcp
+EOF
+fi
